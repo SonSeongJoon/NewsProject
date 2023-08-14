@@ -1,70 +1,59 @@
-# Getting Started with Create React App
+# News Project👩‍💻👨‍💻🧑‍💻
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<aside>
+🤪 To the Python master!
 
-## Available Scripts
+</aside>
 
-In the project directory, you can run:
+[Team members](News%20Project%F0%9F%91%A9%E2%80%8D%F0%9F%92%BB%F0%9F%91%A8%E2%80%8D%F0%9F%92%BB%F0%9F%A7%91%E2%80%8D%F0%9F%92%BB%20a6724862239146819f0f2d09113cfadf/Team%20members%20e98f4246362e4014bcc456f3c4882bcb.csv)
 
-### `npm start`
+이번 프로젝트는 주요한 뉴스 플랫폼인 네이버 뉴스에 실시간으로 접근할 수 있는 웹 애플리케이션을 개발하려 합니다. 플랫폼을 이용하면 사용자들에게 실시간으로 최신 정보를 제공하고, 관심 분야에 따라 정보를 필터링하며, 키워드와 관련된 트렌드를 파악하고, 핫한 토픽을 확인하는데 도움을 줍니다. 이러한 실용적인 가치는 뉴스 소비 및 정보 파악을 위해 널리 활용될 수 있을 것입니다.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+# ⚖️ Project Objective
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+- **실시간 뉴스 제공:** 사용자들은 실시간으로 업데이트되는 네이버 뉴스를 웹서비스를 통해 손쉽게 확인할 수 있습니다. 이를 통해 사용자들은 최신 소식을 신속하게 접할 수 있어 시사 이슈나 뉴스 트렌드에 대한 정보를 빠르게 습득할 수 있습니다.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **뉴스 카테고리 분류:** 뉴스를 카테고리별로 분류하여 제공하면 사용자들은 관심 있는 주제나 분야의 뉴스를 쉽게 찾아볼 수 있습니다. 예를 들어 정치, 경제, 문화 등의 다양한 분야에서 소식을 받아볼 수 있어, 사용자의 관심 분야를 고려한 맞춤형 정보 제공이 가능합니다.
 
-### `npm run build`
+- **키워드 기사량 시계열 분석:** 사용자가 등록한 키워드로 검색된 기사량을 시계열 그래프로 보여줌으로써, 해당 키워드와 관련된 트렌드와 변화를 쉽게 파악할 수 있습니다. 이를 통해 사용자들은 특정 주제에 대한 관심도 변화나 트렌드를 시각적으로 확인하며, 이를 바탕으로 예측과 결정을 내릴 수 있습니다.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **실시간 검색어 순위 제공:** 웹서비스에 실시간 검색어 순위를 제공함으로써 사용자들은 현재 핫한 토픽이나 트렌드에 대한 정보를 얻을 수 있습니다. 이를 통해 사용자들은 사회적인 이슈나 인기 키워드에 대한 실시간 정보를 접하게 되어 더욱 업데이트된 소식을 받아볼 수 있습니다.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# ⚖️ Project Functionality
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## 1. 실시간 뉴스 제공
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+# ⚖️ Tech Stack
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- 프론트엔드: HTML, CSS, JavaScript, Next.js
+- 백엔드: Next.js
+- 데이터베이스: Postgresql
+- 협업: Github
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+# ⚖️ Project Detailed Plan
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- 기획 및 설계 (1주)
+    - 프로젝트 목표 및 기능 정의
+    - UI/UX 디자인
+    - 데이터베이스 모델링
+- 개발(3주)
+    
+    ## 프론트엔드
+    
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+# ⚖️ Project Success Criteria
 
-### Code Splitting
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+# 😈 Additional details
 
-### Analyzing the Bundle Size
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
