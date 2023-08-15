@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import Layout from "./components/Layout";
 
 function App() {
     const [news, setNews] = useState([]);
@@ -25,17 +26,16 @@ function App() {
     if (error) return <div>Error: {error}</div>;
 
     return (
-        <div>
-            <h1>News List</h1>
-            <ul>
-                {news.map(item => (
-                    <li key={item.id}>
-                        <h2>{item.title}</h2>
-                        <p>{item.content}</p>
-                    </li>
-                ))}
-            </ul>
-        </div>
+            <Layout>
+                <ul>
+                    {news.map(item => (
+                        <li className='mb-5' key={item.id}>
+                            <h2 className='text-2xl font-bold'>{item.title}</h2>
+                            <p>{item.content}</p>
+                        </li>
+                    ))}
+                </ul>
+            </Layout>
     );
 }
 
