@@ -1,4 +1,4 @@
-const express = require("express");
+const express = require("express");7
 const {Pool} = require('pg');
 const cors = require('cors');
 
@@ -7,8 +7,8 @@ const PORT = 5000;
 
 const pool = new Pool({
     user: "postgres",
-    host: "localhost",
-    database: "postgres",
+    host: "116.255.67.226",
+    database: process.env.POSTGRESQLPASS,
     password: "qwaszx2689!",
     port: 5432
 });

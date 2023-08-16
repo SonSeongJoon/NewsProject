@@ -1,22 +1,16 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-import DashboardView from '../src/pages/Dashboard';
-import TechnologyView from '../src/pages/Technology';
-import HealthView from '../src/pages/Health';
-import SportsView from '../src/pages/Sports';
-import FinanceView from '../src/pages/Finance';
-import EntertainmentView from '../src/pages/Entertainment';
-// ... 다른 뷰들도 임포트 ...
+import Category from './pages/Category';
 
 function RouteConfig() {
     return (
         <Routes>
-            <Route path="/dashboard" element={<DashboardView />} />
-            <Route path="/technology" element={<TechnologyView />} />
-            <Route path="/health" element={<HealthView/>} />
-            <Route path="/sports" element={<SportsView />} />
-            <Route path="/finance" element={<FinanceView />} />
-            <Route path="/entertainment" element={<EntertainmentView />} />
+            <Route path="/dashboard" element={<Category category='Dashboard'/>} />
+            <Route path="/technology" element={<Category category='Technology'/>}/>
+            <Route path="/health" element={<Category category='Health'/>}/>
+            <Route path="/sports" element={<Category category='Sports'/>}/>
+            <Route path="/finance" element={<Category category='Finance'/>}/>
+            <Route path="/entertainment" element={<Category category='Entertainment'/>}/>
         </Routes>
     );
 }
