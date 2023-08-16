@@ -1,17 +1,22 @@
+// Sidebar.js
+import React from 'react';
+import { Link } from 'react-router-dom';
+
 function Sidebar({ onCategorySelect }) {
-    const categories = ['Technology', 'Health', 'Sports', 'Finance', 'Entertainment'];
+    const categories = ['Dashboard', 'Technology', 'Health', 'Sports', 'Finance', 'Entertainment'];
 
     return (
         <aside className="sidebar border-r p-5">
-        <ul>
+            <ul>
                 {categories.map(category => (
                     <li key={category} className="mb-2">
-                        <p
+                        <Link
+                            to={`/${category.toLowerCase()}`}
                             className="text-gray-700 text-xl font-bold hover:underline"
-                            onClick={() => onCategorySelect(category)}
+                            onClick={() => onCategorySelect(category.toLowerCase())}
                         >
                             {category}
-                        </p>
+                        </Link>
                     </li>
                 ))}
             </ul>
