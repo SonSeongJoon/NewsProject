@@ -12,11 +12,13 @@
 /build
 
 # misc
-src/server/.env.local
 .DS_Store
 .env.test.local
 .env.production.local
+.env
 
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+/src/server/dbConfig.js
