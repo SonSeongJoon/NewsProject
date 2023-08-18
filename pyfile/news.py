@@ -30,3 +30,5 @@ if __name__ == "__main__":
         print(link)
     
      # wowowowoww
+     # 멍멍멍 가아쥐
+     # 꾸엑 오리
