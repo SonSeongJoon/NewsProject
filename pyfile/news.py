@@ -29,8 +29,5 @@ if __name__ == "__main__":
     for link in links:
         print(link)
     
-     # wowowowoww
-     # 멍멍멍 가아쥐
-     # 꾸엑 오리
+     ##################
      
-    #fkfkfffffffff
