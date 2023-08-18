@@ -27,5 +27,5 @@ if __name__ == "__main__":
     page = 1
     links = ex_tag(sid, page)
     for link in links:
-        print(link)
+        print("정치뉴스링크", link)
     
