@@ -9,7 +9,7 @@ def ex_tag(sid, page):
     html = requests.get(url, headers={"User-Agent": "Mozilla/5.0"\
     "(Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) "\
     "Chrome/110.0.0.0 Safari/537.36"})
-    soup = BeautifulSoup(html.text, "lxml")
+    soup = BeautifulSoup(html.text, 'html.parser')
     a_tag = soup.find_all("a")
     
     
@@ -27,5 +27,8 @@ if __name__ == "__main__":
     page = 1
     links = ex_tag(sid, page)
     for link in links:
-        print("정치뉴스링크", link)
+        print(link)
     
+     # wowowowoww
+     # 멍멍멍 가아쥐
+     # 꾸엑 오리
