@@ -1,29 +1,43 @@
 import requests
 from bs4 import BeautifulSoup
-
-
-def ex_tag(sid, page):
-    url = f"https://news.naver.com/main/main.naver?mode=LSD&mid=shm&sid1={sid}" \
-          "#&date=%2000:00:00&page={page}"
+# ,
+categories = ['society', 'politics', 'economic']
+def get_newslist(category):
+    url = f"https://news.daum.net/breakingnews/{category}"
     html = requests.get(url, headers={"User-Agent": "Mozilla/5.0" \
                                                     "(Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) " \
                                                     "Chrome/110.0.0.0 Safari/537.36"})
     soup = BeautifulSoup(html.text, 'html.parser')
-    a_tag = soup.find_all("a")
+    list_news2 = soup.find('ul', class_="list_news2 list_allnews")
+    newslist = list_news2.find_all('div', class_="cont_thumb")
+    return newslist
 
-    tag_lst = []
-    for a in a_tag:
-        if "href" in a.attrs:
-            if (f"sid={sid}" in a["href"]) and ("article" in a["href"]):
-                tag_lst.append(a["href"])
+def get_news(newslist):
+    for news in newslist:
+        title_info = news.find('strong', class_="tit_thumb")
+        title = title_info.find('a').text
 
-    return tag_lst
+        press_info = news.find('span', class_="info_news").text
+        press = press_info.split()[0]
+        date = press_info.split()[2]
+
+        news_info = {
+            'title': title,
+            'press': press,
+            'date': date,
+            'newstype': category
+        }
+        print(news_info)
 
 
 ####print(tag_lst = ex_tag(100, 1))
 if __name__ == "__main__":
-    sid = "100"
     page = 1
-    links = ex_tag(sid, page)
-    for link in links:
-        print(link)
+    for category in categories:
+        one_list = get_newslist(category)
+        get_news(one_list)
+
+
+
+
+
