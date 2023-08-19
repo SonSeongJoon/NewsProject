@@ -22,4 +22,4 @@ yarn-debug.log*
 yarn-error.log*
 
 /src/server/dbConfig.js
-../pyfile/config.ini
+
