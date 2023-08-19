@@ -3,7 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 function Sidebar({ onCategorySelect }) {
-    const categories = ['Dashboard', 'Technology', 'Health', 'Sports', 'Finance', 'Entertainment'];
+    const categories = ['Dashboard', 'society', 'politics', 'economic'];
 
     return (
         <aside className="sidebar border-r p-5">

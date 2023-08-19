@@ -6,9 +6,9 @@ function RouteConfig() {
     return (
         <Routes>
             <Route path="/dashboard" element={<Category category='Dashboard'/>} />
-            <Route path="/technology" element={<Category category='Technology'/>}/>
-            <Route path="/health" element={<Category category='Health'/>}/>
-            <Route path="/sports" element={<Category category='Sports'/>}/>
+            <Route path="/society" element={<Category category='society'/>}/>
+            <Route path="/politics" element={<Category category='politics'/>}/>
+            <Route path="/economic" element={<Category category='economic'/>}/>
             <Route path="/finance" element={<Category category='Finance'/>}/>
             <Route path="/entertainment" element={<Category category='Entertainment'/>}/>
         </Routes>
