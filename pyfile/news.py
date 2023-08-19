@@ -1,12 +1,16 @@
 import requests
 from bs4 import BeautifulSoup
 import pyodbc
+import configparser
 
+# INI 파일 읽기
+config = configparser.ConfigParser()
+config.read("config.ini")
 
-server_name = "sql19-001.cafe24.com"
-db_name = "sonbs99"
-user_id = "sonbs99"
-password = "dltjsgml!1"
+server_name = config.get('database', 'server_name')
+db_name = config.get('database', "db_name")
+user_id = config.get('database', "user_id")
+password = config.get('database', "password")
 
 # 연결 설정
 conn = pyodbc.connect(
