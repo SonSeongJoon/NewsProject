@@ -15,7 +15,7 @@ const Dashboard = ({ category }) => {
             <h1 className='text-3xl font-bold mb-5 text-gray-500'>{category}</h1>
             <ul>
                 {filteredNews.map(item => (
-                    <NewsCard key={item.id} item={item} type={item.newstype} />
+                    <NewsCard key={item.id} item={item}/>
                 ))}
             </ul>
         </div>

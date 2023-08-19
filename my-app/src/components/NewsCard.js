@@ -5,9 +5,12 @@ import React from 'react';
 function NewsCard({ item }) {
     return (
         <li className='mb-5'>
-            <h2 className='text-xl font-bold'>{item.title}</h2>
+            <div className='flex'>
+                <h2 className='text-xl font-bold mr-4'>{item.title}</h2>
+                <p className='text-sm text-gray-500'>{item.press}</p>
+            </div>
             <p>{item.content}</p>
-            <p>뉴스 타입: {item.newstype}</p>
+
         </li>
     );
 }
