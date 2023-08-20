@@ -1,9 +1,10 @@
 function Header() {
     return (
-        <header className='flex justify-between item-center p-4'>
-            <h1 className='text-3xl font-bold'>News Project</h1>
-        </header>
-
+        <>
+            <header className='flex item-center pt-3'>
+                <h1 className='text-3xl font-bold'>News Project</h1>
+            </header>
+        </>
     )
 }
 export default Header;

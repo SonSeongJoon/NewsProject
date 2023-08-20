@@ -6,7 +6,7 @@ function Sidebar({ onCategorySelect }) {
     const categories = ['Dashboard', 'society', 'politics', 'economic'];
 
     return (
-        <aside className="sidebar border-r p-5">
+        <div className='mt-5'>
             <ul>
                 {categories.map(category => (
                     <li key={category} className="mb-2">
@@ -20,7 +20,8 @@ function Sidebar({ onCategorySelect }) {
                     </li>
                 ))}
             </ul>
-        </aside>
+        </div>
+
     );
 }
 

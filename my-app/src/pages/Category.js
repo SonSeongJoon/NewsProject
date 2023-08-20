@@ -2,7 +2,7 @@ import React from "react";
 import useFetchNews from "../api/useFetchNews";
 import NewsCard from "../components/NewsCard";
 
-const Dashboard = ({ category }) => {
+const Category = ({ category }) => {
     const { news, loading, error } = useFetchNews(category);
 
     const filteredNews = news.filter(item => item.newstype === category);
@@ -12,14 +12,18 @@ const Dashboard = ({ category }) => {
 
     return (
         <div>
-            <h1 className='text-3xl font-bold mb-5 text-gray-500'>{category}</h1>
-            <ul>
-                {filteredNews.map(item => (
-                    <NewsCard key={item.id} item={item}/>
-                ))}
-            </ul>
+            <h1 className='sticky top-0 bg-white text-3xl font-bold mb-5 text-gray-500'>{category}</h1>
+            {filteredNews.length === 0 ? (
+                <p>News not available for this category.</p>
+            ) : (
+                <ul>
+                    {filteredNews.map(item => (
+                        <NewsCard key={item.id} item={item}/>
+                    ))}
+                </ul>
+            )}
         </div>
     );
 }
 
-export default Dashboard;
+export default Category;

@@ -5,7 +5,7 @@ import Category from './pages/Category';
 function RouteConfig() {
     return (
         <Routes>
-            <Route path="/dashboard" element={<Category category='Dashboard'/>} />
+            <Route path="/dashboard" element={<Category category='dashboard'/>} />
             <Route path="/society" element={<Category category='society'/>}/>
             <Route path="/politics" element={<Category category='politics'/>}/>
             <Route path="/economic" element={<Category category='economic'/>}/>
