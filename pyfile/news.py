@@ -60,7 +60,7 @@ def save_news_to_db(news_info):
         newstype = news_info['newstype']
 
         # SQL 쿼리 작성
-        query = f"INSERT INTO news (title, press, content, date, newstype) VALUES (?, ?,?, ?, ?)"
+        query = f"INSERT INTO news (title, press, content, date, newstype) VALUES (?, ?, ?, ?, ?)"
 
         # 쿼리 실행
         cursor.execute(query, (title, press, content, date, newstype))
