@@ -11,7 +11,7 @@ function Sidebar({ onCategorySelect }) {
                 {categories.map(category => (
                     <li key={category} className="mb-2">
                         <Link
-                            to={`/${category.toLowerCase()}`}
+                            to={category === 'Dashboard' ? '/' : `/${category.toLowerCase()}`}
                             className="text-gray-700 text-xl font-bold hover:underline"
                             onClick={() => onCategorySelect(category.toLowerCase())}
                         >
@@ -21,7 +21,6 @@ function Sidebar({ onCategorySelect }) {
                 ))}
             </ul>
         </div>
-
     );
 }
 

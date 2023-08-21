@@ -14,7 +14,6 @@ app.get('/api/news', async (req, res) => {
     try {
         const pool = await sql.connect(dbConfig); // dbConfig에서 가져온 접속 정보 사용
         const result = await pool.request().query('SELECT * FROM news');
-        console.log(result.recordset)
         res.json(result.recordset);
     } catch (err) {
         console.error(err);

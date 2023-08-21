@@ -1,11 +1,11 @@
 // useFetchNews.js
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-function useFetchNews(category) {
+function useFetchNews() {
     const [news, setNews] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
-    const [selectedCategory, setSelectedCategory] = useState(null);  // 추가
+    const selectedCategory="apple"
 
 
     useEffect(() => {
@@ -25,7 +25,7 @@ function useFetchNews(category) {
         }
 
         fetchNews();
-    }, [selectedCategory]);  // selectedCategory 변경될 때마다 뉴스를 다시 불러옵니다.
+    }, [selectedCategory]);
 
     return { news, loading, error };
 }
