@@ -19,7 +19,6 @@ const Dashboard = () => {
             }
         });
     }
-
     return (
         <>
             {Object.keys(firstNewsByCategory).map((cat) => (

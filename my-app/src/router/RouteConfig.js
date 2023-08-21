@@ -10,6 +10,7 @@ function RouteConfig() {
             <Route path="/society" element={<Category category='society' />} />
             <Route path="/politics" element={<Category category='politics' />} />
             <Route path="/economic" element={<Category category='economic' />} />
+            <Route path="/foreign" element={<Category category='foreign' />} />
         </Routes>
     );
 }
