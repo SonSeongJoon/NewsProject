@@ -5,7 +5,7 @@ function Layout({children}) {
     return (
         <>
             <div
-                className='flex w-full max-w-screen-xl mx-auto h-screen overflow-y-auto'> {/* added h-screen and overflow-y-auto */}
+                className='flex w-full lg:max-w-screen-lg xl:max-w-screen-xl mx-auto h-screen overflow-y-auto'> {/* added h-screen and overflow-y-auto */}
                 <header className='flex flex-col sticky top-0 w-1/5 bg-white h-full'>
                     <Header/>
                     <Sidebar/>
@@ -19,5 +19,4 @@ function Layout({children}) {
         </>
     );
 }
-
 export default Layout;
