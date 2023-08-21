@@ -13,7 +13,7 @@ const Category = ({ category }) => {
     return (
         <div>
                 <ul>
-                    <h1 className='sticky top-0 bg-white text-3xl font-bold mb-5 text-gray-500'>{category}</h1>
+                    <h1 className='sticky pb-1 top-0 bg-white text-3xl font-bold mb-5 text-gray-500'>{category}</h1>
                     {filteredNews.map(item => (
                         <NewsCard key={item.id} item={item}/>
                     ))}
