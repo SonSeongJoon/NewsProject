@@ -3,7 +3,7 @@ import useFetchNews from "../api/useFetchNews";
 import NewsCard from "./NewsCard";
 
 const Category = ({ category }) => {
-    const { news, loading, error } = useFetchNews(category);
+    const { news, loading, error } = useFetchNews();
 
     const filteredNews = news.filter(item => item.newstype === category);
 
