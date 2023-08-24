@@ -35,6 +35,8 @@ def save_news_to_db(news_info):
     content = news_info['content']
     date = news_info['date']
     newstype = news_info['newstype']
+    image = image_info['image']
+    url = url.info_info['url']
 
     # SQL 쿼리 작성
     query = "INSERT INTO news (title, press, content, date, newstype) VALUES (?, ?, ?, ?, ?)"
@@ -44,10 +46,11 @@ def save_news_to_db(news_info):
     conn.commit()
 
 def main():
-    categories = ['society', 'politics', 'economic']
+    num_pages = 50  
+    categories = ['','society','politics','economic','foreign','culture','entertain','sports','digital','editorial','press','botnews']
 
     for category in categories:
-        newslist = get_newslist(category)
+        newslist = get_newslist(category, num_pages)
 
         for news in newslist:
             title_info = news.find('strong', class_="tit_thumb")
@@ -59,14 +62,24 @@ def main():
 
             content_info = news.find('div', class_="desc_thumb")
             content = content_info.find('span', class_="link_txt").text
-
-            news_info = {
-                'title': title,
-                'press': press,
-                'content': content,
-                'date': date,
-                'newstype': category
-            }
+            
+           
+            img_info = news.find('a', class_="link_thumb")
+            img_tags = img_info.find_all('img')
+            img = [img['src'] for img in img_tags]
+        
+            for img in img_urls:
+                news_info = {
+                    'title': title,
+                    'press': press,
+                    'content': content,
+                    'date': date,
+                    'newstype': category,
+                    'img': img
+                }
+                
+                
+                
 
             save_news_to_db(news_info)
 
