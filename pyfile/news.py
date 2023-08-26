@@ -99,6 +99,7 @@ def main():
             
             
             save_news_to_db(news_info)
+            #wwwwww
 
 if __name__ == "__main__":
     main()
