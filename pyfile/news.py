@@ -18,15 +18,54 @@ conn = pyodbc.connect(
 )
 cursor = conn.cursor()
 
-def get_newslist(category):
+
+
+def get_newslist(category, num_pages):
+    newslist = []
     
-    url = f"https://news.daum.net/breakingnews/{category}"
-    html = requests.get(url, headers={"User-Agent": "Mozilla/5.0" \
+    for page in range(1, num_pages + 1):
+        url = f"https://news.daum.net/breakingnews/{category}?page={page}"
+        html = requests.get(url, headers={"User-Agent": "Mozilla/5.0" \
                                                     "(Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) " \
                                                     "Chrome/110.0.0.0 Safari/537.36"})
-    soup = BeautifulSoup(html.text, 'html.parser')
-    list_news2 = soup.find('ul', class_="list_news2 list_allnews")
-    newslist = list_news2.find_all('div', class_="cont_thumb")
+        soup = BeautifulSoup(html.text, 'html.parser')
+        list_news2 = soup.find('ul', class_="list_news2 list_allnews")
+        news_items = list_news2.find_all('li')
+
+        for news_item in news_items:
+            
+            
+            img_info = news_item.find('a', class_="link_thumb")
+            if img_info:
+                img_tag = img_info.find('img')
+                img = img_tag['src']
+            else:
+                img = None
+
+            title_info = news_item.find('strong', class_="tit_thumb")
+            title = title_info.find('a').text
+
+            press_info = title_info.find_next('span', class_="info_news").text
+            press = press_info.split()[0]
+            date = press_info.split()[2]
+
+            content_info = news_item.find('div', class_="desc_thumb")
+            content = content_info.find('span', class_="link_txt").text
+            
+            address_url_info = news_item.find('strong', class_="tit_thumb")
+            address_url = address_url_info.find('a',class_="link_txt")['href']
+
+            news_info = {
+                'title': title,
+                'press': press,
+                'content': content,
+                'date': date,
+                'newstype': category,
+                'img': img,
+                'address_url': address_url
+            }
+            newslist.append(news_info)
+                
     return newslist
 
 def save_news_to_db(news_info):
@@ -81,6 +120,20 @@ def main():
                 
                 
 
+            save_news_to_db(news_info)
+            
+def main():
+    num_pages = 50
+    categories = ['','society','politics','economic','foreign','culture','entertain','sports','digital','editorial','press','botnews']
+
+
+
+    for category in categories:
+        newslist = get_newslist(category, num_pages)
+
+        for news in newslist:
+            
+            
             save_news_to_db(news_info)
 
 if __name__ == "__main__":
