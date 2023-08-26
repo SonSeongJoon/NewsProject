@@ -4,8 +4,8 @@ function NewsCard({ item }) {
     const { title, press, date, content, url, image } = item;
 
     return (
-        <div className='flex items-center border-t-2 p-4'>
-            <div className='mb-5 p-1'>
+        <div className='flex items-center border-t-2 '>
+            <div className='mb-5 p-1 w-5/6 mr-4'>
                 <p className='text-sm text-gray-700'>{date}</p>
                 <div className='flex items-center'>
                     <h2 className='text-lg font-bold'>{title}</h2>
@@ -14,7 +14,7 @@ function NewsCard({ item }) {
                 <p className='text-xs text-gray-600'>{'#'}{press}</p>
             </div>
             <div>
-                <img src='' alt='뉴스 이미지' className='w-32 h-32 bg-gray-300'/>
+                <img src='' alt='뉴스 이미지' className='w-32 h-32 bg-gray-300 mr-2'/>
             </div>
         </div>
 

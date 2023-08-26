@@ -1,7 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+html, body {
+    font-family: 'Noto Sans KR', sans-serif;
+}
 /* 스크롤바 스타일 변경 */
 ::-webkit-scrollbar {
     width: 0.5em;
