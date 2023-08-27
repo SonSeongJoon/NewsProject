@@ -3,7 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 function Sidebar() {
-  const categories = ['Dashboard', 'society', 'politics', 'economic', 'foreign'];
+  const categories = ['Dashboard', 'society', 'politics', 'economic', 'foreign', 'culture', 'entertain', 'sports', 'digital', 'editorial', 'press', 'botnews'];
   return (
       <div className='mt-5'>
         <ul>

@@ -1,16 +1,18 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 import Category from '../components/Category';
-import Dashboard from '../components/Dashboard';
-
+import Dashboard from "../components/Dashboard";
 function RouteConfig() {
+    const categories = ['society', 'politics', 'economic', 'foreign', 'culture', 'entertain', 'sports', 'digital', 'editorial', 'press', 'botnews'];
+
+    const categoryRoutes = categories.map(category => (
+        <Route key={category} path={`/${category}`} element={<Category category={category} />} />
+    ));
+
     return (
         <Routes>
-            <Route path="/" element={<Dashboard/>} />
-            <Route path="/society" element={<Category category='society' />} />
-            <Route path="/politics" element={<Category category='politics' />} />
-            <Route path="/economic" element={<Category category='economic' />} />
-            <Route path="/foreign" element={<Category category='foreign' />} />
+            <Route path='/' element={<Dashboard/>}/>
+            {categoryRoutes}
         </Routes>
     );
 }
