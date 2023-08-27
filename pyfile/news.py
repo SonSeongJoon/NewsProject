@@ -20,17 +20,20 @@ cursor = conn.cursor()
 
 
 
-def get_newslist(category, num_pages):
-    newslist = []
-    
-    for page in range(1, num_pages + 1):
+def get_newslist(category):
+    for page in range(1, 10):
         url = f"https://news.daum.net/breakingnews/{category}?page={page}"
         html = requests.get(url, headers={"User-Agent": "Mozilla/5.0" \
                                                     "(Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) " \
                                                     "Chrome/110.0.0.0 Safari/537.36"})
         soup = BeautifulSoup(html.text, 'html.parser')
         list_news2 = soup.find('ul', class_="list_news2 list_allnews")
-        news_items = list_news2.find_all('li')
+
+        try:
+            news_items = list_news2.find_all('li')
+        except:
+            print("page end")
+            break
 
         for news_item in news_items:
             
@@ -64,9 +67,9 @@ def get_newslist(category, num_pages):
                 'img': img,
                 'address_url': address_url
             }
-            newslist.append(news_info)
-                
-    return newslist
+            # print(news_info)
+            save_news_to_db(news_info)
+
 
 def save_news_to_db(news_info):
     title = news_info['title']
@@ -74,32 +77,22 @@ def save_news_to_db(news_info):
     content = news_info['content']
     date = news_info['date']
     newstype = news_info['newstype']
-    image = news_info['image']
-    address_url = news_info['url']
+    image = news_info['img']
+    address_url = news_info['address_url']
 
     # SQL 쿼리 작성
-    query = "INSERT INTO news (title, press, content, date, newstype) VALUES (?, ?, ?, ?, ?)"
+    query = "INSERT INTO news (title, press, content, date, newstype, image, url) VALUES (?, ?, ?, ?, ?, ?, ?)"
 
     # 쿼리 실행
-    cursor.execute(query, (title, press, content, date, newstype))
+    cursor.execute(query, (title, press, content, date, newstype, image, address_url))
     conn.commit()
 
 
             
 def main():
-    num_pages = 50
     categories = ['','society','politics','economic','foreign','culture','entertain','sports','digital','editorial','press','botnews']
-
-
-
     for category in categories:
-        newslist = get_newslist(category, num_pages)
-
-        for news in newslist:
-            
-            
-            save_news_to_db(news_info)
-            #wwwwww
+        get_newslist(category)
 
 if __name__ == "__main__":
     main()
