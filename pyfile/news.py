@@ -19,13 +19,29 @@ conn = pyodbc.connect(
 cursor = conn.cursor()
 
 
+# Create a dictionary to map the original category to its Korean translation
+category_translation = {
+    '': '최신',
+    'society': '사회',
+    'politics': '정치',
+    'economic': '경제',
+    'foreign': '외국',
+    'culture': '문화',
+    'entertain': '엔터테인먼트',
+    'sports': '스포츠',
+    'digital': '디지털',
+    'editorial': '사설',
+    'press': '언론',
+    'botnews': '봇뉴스'
+}
 
+# Modify the get_newslist function to translate the category before saving
 def get_newslist(category):
     for page in range(1, 10):
         url = f"https://news.daum.net/breakingnews/{category}?page={page}"
         html = requests.get(url, headers={"User-Agent": "Mozilla/5.0" \
-                                                    "(Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) " \
-                                                    "Chrome/110.0.0.0 Safari/537.36"})
+                                                        "(Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) " \
+                                                        "Chrome/110.0.0.0 Safari/537.36"})
         soup = BeautifulSoup(html.text, 'html.parser')
         list_news2 = soup.find('ul', class_="list_news2 list_allnews")
 
@@ -36,8 +52,6 @@ def get_newslist(category):
             break
 
         for news_item in news_items:
-            
-            
             img_info = news_item.find('a', class_="link_thumb")
             if img_info:
                 img_tag = img_info.find('img')
@@ -54,22 +68,26 @@ def get_newslist(category):
 
             content_info = news_item.find('div', class_="desc_thumb")
             content = content_info.find('span', class_="link_txt").text
-            
+
             address_url_info = news_item.find('strong', class_="tit_thumb")
-            address_url = address_url_info.find('a',class_="link_txt")['href']
+            address_url = address_url_info.find('a', class_="link_txt")['href']
+
+            # Translate the category to Korean
+            translated_category = category_translation[category]
 
             news_info = {
                 'title': title,
                 'press': press,
                 'content': content,
                 'date': date,
-                'newstype': category,
+                'newstype': translated_category,
                 'img': img,
                 'address_url': address_url
             }
-            # print(news_info)
+
             save_news_to_db(news_info)
 
+# Other parts of the code remain unchanged
 
 def save_news_to_db(news_info):
     title = news_info['title']
@@ -88,7 +106,6 @@ def save_news_to_db(news_info):
     conn.commit()
 
 
-            
 def main():
     categories = ['','society','politics','economic','foreign','culture','entertain','sports','digital','editorial','press','botnews']
     for category in categories:
