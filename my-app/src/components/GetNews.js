@@ -2,7 +2,7 @@ import React from "react";
 import useFetchNews from "../api/useFetchNews";
 import NewsCard from "./NewsCard";
 
-const Category = ({ category }) => {
+const GetNews = ({ category }) => {
     const { news, loading, error } = useFetchNews();
 
     const filteredNews = news.filter(item => item.newstype === category);
@@ -22,4 +22,4 @@ const Category = ({ category }) => {
     );
 }
 
-export default Category;
+export default GetNews;
