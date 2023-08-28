@@ -1,12 +1,11 @@
 import React from 'react';
 import { Route, Routes } from 'react-router-dom';
-import Category from '../components/Category';
+import GetNews from '../components/GetNews';
 import Dashboard from "../components/Dashboard";
+import {categories} from "../components/Categories";
 function RouteConfig() {
-    const categories = ['society', 'politics', 'economic', 'foreign', 'culture', 'entertain', 'sports', 'digital', 'editorial', 'press', 'botnews'];
-
     const categoryRoutes = categories.map(category => (
-        <Route key={category} path={`/${category}`} element={<Category category={category} />} />
+        <Route key={category} path={`/${category}`} element={<GetNews category={category} />} />
     ));
 
     return (
@@ -16,5 +15,4 @@ function RouteConfig() {
         </Routes>
     );
 }
-
 export default RouteConfig;
