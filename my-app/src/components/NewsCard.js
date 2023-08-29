@@ -14,7 +14,8 @@ function NewsCard({ item }) {
                 <p className='text-xs text-gray-600'>{'#'}{press}</p>
             </div>
             <div>
-                <img src={image} alt='뉴스 이미지' className='w-32 h-32 bg-gray-300 mr-2'/>
+
+                {image ? <img src={image} alt="" className='w-32 h-32 mr-2'/> : null}
             </div>
         </div>
 
