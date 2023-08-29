@@ -1,6 +1,7 @@
 import useFetchNews from "../api/useFetchNews";
 import NewsCard from "./NewsCard";
 import {dashboard} from "./Categories";
+
 const numberOfNewsPerCategory = 1; // 각 카테고리별로 가져올 뉴스 개수 설정
 
 const Dashboard = () => {
