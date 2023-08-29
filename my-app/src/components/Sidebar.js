@@ -1,7 +1,8 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { categories } from "./Categories";
-import { BsFillCaretDownFill, BsNewspaper, BsDot } from "react-icons/bs";
+import {categories} from "./Categories";
+import {BsNewspaper} from "react-icons/bs";
+import {ToggleButton} from "./ToggleButton";
+import {NewsCategoryItem} from "./NewsCategoryItem";
 
 function Sidebar() {
     const [isOpen, setIsOpen] = React.useState(false);
@@ -9,24 +10,18 @@ function Sidebar() {
     return (
         <div className='mt-5'>
             <ul>
-                <div className='flex items-center border-2 justify-between'>
+                <div className='flex p-1 items-center justify-between cursor-pointer'
+                     onClick={() => setIsOpen(!isOpen)}>
                     <div className='flex items-center'>
                         <BsNewspaper className='mx-2' size={20}/>
-                        <button className='text-gray-700 text-xl font-bold' onClick={() => setIsOpen(!isOpen)}>뉴스</button>
+                        <button className='text-gray-700 text-xl font-bold'>뉴스</button>
                     </div>
-                    <BsFillCaretDownFill className='mr-2' size={20} color='gray' />
+                    <ToggleButton isOpen={isOpen}/>
                 </div>
-                <div className='ml-9'>
+                <div
+                    className={`ml-9 overflow-hidden transition-all ease-out duration-700 ${isOpen ? 'max-h-[500px]' : 'max-h-0'}`}>
                     {isOpen && categories.map(category => (
-                        <li key={category} className="flex items-center my-1">
-                            <BsDot/>
-                            <Link
-                                to={category === dashboard ? '/'.toLowerCase() : `/${category.toLowerCase()}`}
-                                className="text-gray-700 text-md hover:underline"
-                            >
-                                {category}
-                            </Link>
-                        </li>
+                        <NewsCategoryItem key={category.id} category={category} isDashboard={dashboard}/>
                     ))}
                 </div>
             </ul>
