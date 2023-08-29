@@ -4,6 +4,9 @@
 html, body {
     font-family: 'Noto Sans KR', sans-serif;
 }
+button {
+    user-select : none;
+}
 /* 스크롤바 스타일 변경 */
 ::-webkit-scrollbar {
     width: 0.5em;
