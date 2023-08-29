@@ -2,6 +2,7 @@ const express = require("express");
 const sql = require("mssql");
 const cors = require('cors');
 const dbConfig = require('./dbConfig'); // dbConfig.js 파일에서 접속 정보 가져오기
+const path = require('path');
 
 const app = express();
 const PORT = 5000;
@@ -21,4 +22,8 @@ app.get('/api/news', async (req, res) => {
 
 app.listen(PORT, () => {
     console.log(`server started on http://localhost:${PORT}`);
+});
+
+app.get('*', (res, req) => {
+    req.sendFile(path.join(__dirname, '/build/index.html'));
 });
