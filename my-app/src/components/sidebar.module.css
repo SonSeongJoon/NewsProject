@@ -1,0 +1,56 @@
+/* sidebar.module.css */
+
+.container {
+    background-color: #E3ECF1;
+  }
+  
+  .sidebar {
+    background-color: #E3ECF1;
+    border-right: 2px solid #202020;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: -250px; /* Updated: sidebar on the left */
+    transition: left 0.4s ease; /* Updated: transition for left */
+    color: #202020;
+    width: 250px;
+    z-index: 99;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .button {
+    position: absolute;
+    top: 20px;
+    right: -50px; /* Updated: button on the right */
+    width: 40px;
+    height: 40px;
+    z-index: 99;
+    transition: 0.8s ease;
+    border: 2px solid #202020;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    background-color: #E3ECF1;
+  }
+  
+  .openBtn {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .content {
+    padding: 20px;
+    flex-grow: 1;
+  }
+  
+  .icon {
+    margin-right: 10px;
+    color: #202020;
+  }
+  

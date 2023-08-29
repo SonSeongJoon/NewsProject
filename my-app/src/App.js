@@ -1,11 +1,13 @@
-import './App.css';
+import React from 'react';
+import Layout from "./components/Layout";
+import RouteConfig from "./router/RouteConfig";
 
 function App() {
-  return (
-    <>
-    <main>newsproject</main>
-    </>
-  );
+    return (
+        <Layout>
+            <RouteConfig />
+        </Layout>
+    );
 }
 
 export default App;
