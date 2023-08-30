@@ -1,20 +1,20 @@
-import React from 'react';
-import {SidebarCategory} from "./SidebarList/SidebarCategory";
+import React, {useState} from 'react';
+import {SidebarCategory} from "./SideBar/SidebarList/SidebarCategory";
+import {BsList} from "react-icons/bs";
 
-function Sidebar() {
+function Sidebar({isSmallSide, toggleSmallSide}) {
+
     return (
-        <div className='w-full p-1' style={{backgroundColor: '#2A3042'}}>
-            <div className='text-white text-xl'>NEWS TECH</div>
+        <div className='p-1 w-full bg-yellow-300' style={{ backgroundColor: '#2A3042' }}>
+            <div className='flex justify-center items-center h-[55px]'>
+            </div>
             <ul>
-                <li className=''><SidebarCategory/></li>
-                <li className=''><SidebarCategory/></li>
-                <li className=''><SidebarCategory/></li>
-                <li className=''><SidebarCategory/></li>
-                <li className=''><SidebarCategory/></li>
-                <li className=''><SidebarCategory/></li>
+                <li><SidebarCategory isSmallSide={isSmallSide}/></li>
+                <li><SidebarCategory isSmallSide={isSmallSide}/></li>
+                <li><SidebarCategory isSmallSide={isSmallSide}/></li>
+                <li><SidebarCategory isSmallSide={isSmallSide}/></li>
             </ul>
-        </div>
+</div>
     );
 }
-
 export default Sidebar;
