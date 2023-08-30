@@ -34,6 +34,11 @@ category_translation = {
     'press': '언론',
     'botnews': '봇뉴스'
 }
+def is_url_duplicate(url):
+    query = "SELECT COUNT(*) FROM news WHERE url = ?"
+    cursor.execute(query, (url,))
+    count = cursor.fetchone()[0]
+    return count > 0
 
 # Modify the get_newslist function to translate the category before saving
 def get_newslist(category):
