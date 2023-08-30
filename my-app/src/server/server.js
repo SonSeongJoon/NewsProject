@@ -20,10 +20,10 @@ app.get('/api/news', async (req, res) => {
     }
 });
 
-app.listen(PORT, () => {
-    console.log(`server started on http://localhost:${PORT}`);
-});
-
 app.get('*', (res, req) => {
     req.sendFile(path.join(__dirname, '/build/index.html'));
+});
+
+app.listen(PORT, () => {
+    console.log(`server started on http://localhost:${PORT}`);
 });
