@@ -5,7 +5,7 @@ import RouteConfig from "./router/RouteConfig";
 function App() {
     return (
         <Layout>
-            <RouteConfig />
+            <RouteConfig/>
         </Layout>
     );
 }

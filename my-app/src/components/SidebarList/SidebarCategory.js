@@ -20,7 +20,7 @@ export function SidebarCategory() {
          <div
              className={`ml-9 overflow-hidden transition-all ease-out duration-700 ${isOpen ? 'max-h-[500px]' : 'max-h-0'}`}>
              {isOpen && categories.map(category => (
-                 <NewsCategoryItem key={category} category={category} Dashboard={dashboard}/>
+                     <NewsCategoryItem key={category} category={category} Dashboard={dashboard}/>
              ))}
          </div>
 
