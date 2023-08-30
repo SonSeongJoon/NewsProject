@@ -13,7 +13,7 @@ export function SidebarCategory() {
               onClick={() => setIsOpen(!isOpen)}>
              <div className='flex items-center'>
                  <BsNewspaper className='mx-2' size={20}/>
-                 <button className='hidden md:block text-white text-xl font-bold'>뉴스</button>
+                 <button className='text-white text-xl font-bold'>뉴스</button>
              </div>
              <ToggleButton isOpen={isOpen}/>
          </div>

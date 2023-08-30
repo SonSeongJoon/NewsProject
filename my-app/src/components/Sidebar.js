@@ -3,7 +3,8 @@ import {SidebarCategory} from "./SidebarList/SidebarCategory";
 
 function Sidebar() {
     return (
-        <div className='p-1 w-[250px]' style={{backgroundColor: '#2A3042'}}>
+        <div className='w-full p-1' style={{backgroundColor: '#2A3042'}}>
+            <div className='text-white text-xl'>NEWS TECH</div>
             <ul>
                 <li className=''><SidebarCategory/></li>
                 <li className=''><SidebarCategory/></li>
