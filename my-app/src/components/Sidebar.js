@@ -3,9 +3,14 @@ import {SidebarCategory} from "./SidebarList/SidebarCategory";
 
 function Sidebar() {
     return (
-        <div>
+        <div className='p-1 w-[250px]' style={{backgroundColor: '#2A3042'}}>
             <ul>
-                <li className='mb-1'><SidebarCategory/></li>
+                <li className=''><SidebarCategory/></li>
+                <li className=''><SidebarCategory/></li>
+                <li className=''><SidebarCategory/></li>
+                <li className=''><SidebarCategory/></li>
+                <li className=''><SidebarCategory/></li>
+                <li className=''><SidebarCategory/></li>
             </ul>
         </div>
     );

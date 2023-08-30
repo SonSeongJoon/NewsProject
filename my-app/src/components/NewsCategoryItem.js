@@ -1,14 +1,12 @@
-import {BsDot} from "react-icons/bs";
 import {Link} from "react-router-dom";
 
 export function NewsCategoryItem({category, Dashboard}) {
     const isDashboard = Dashboard === category
     return (
-        <li className='text-white flex items-center my-1'>
-            <BsDot/>
+        <li>
             <Link
                 to={isDashboard ? '/' : `/${category}`}
-                className='text-white text-md hover:underline cursor-pointer'
+                className='flex items-center text-white text-md hover:underline cursor-pointer my-1.5 ml-3'
             >
                 {category}
             </Link>
