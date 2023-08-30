@@ -1,8 +1,8 @@
 function Header() {
     return (
         <>
-            <header className='flex item-center pt-3'>
-                <h1 className='text-3xl font-bold'>NEWS TECK</h1>
+            <header className='p-2 flex items-center justify-center'>
+                <h1 className='text-white text-2xl font-bold'>NEWS TECK</h1>
             </header>
         </>
     )

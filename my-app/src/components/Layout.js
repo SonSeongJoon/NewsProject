@@ -5,13 +5,13 @@ function Layout({children}) {
     return (
         <>
             <div
-                className='flex w-full h-screen overflow-y-auto'> {/* added h-screen and overflow-y-auto */}
-                <header className='flex flex-col sticky top-0 w-1/5 bg-white h-full ml-10'>
-                    <div className='mb-4'><Header/></div>
+                className='flex w-full h-screen overflow-y-auto'>
+                <side className='flex flex-col sticky top-0 w-[250px] h-full' style={{backgroundColor: '#2A3042'}}>
+                    <div><Header/></div>
                     <div><Sidebar/></div>
-                </header>
-                <main className='w-4/5'>
-                    <div className=' overflow-y-auto h-full'>
+                </side>
+                <main className='grow'>
+                    <div className='overflow-y-auto h-full'>
                         {children}
                     </div>
                 </main>
