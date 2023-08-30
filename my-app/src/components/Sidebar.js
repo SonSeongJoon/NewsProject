@@ -21,7 +21,7 @@ function Sidebar() {
                 <div
                     className={`ml-9 overflow-hidden transition-all ease-out duration-700 ${isOpen ? 'max-h-[500px]' : 'max-h-0'}`}>
                     {isOpen && categories.map(category => (
-                        <NewsCategoryItem key={category.id} category={category} isDashboard={dashboard}/>
+                        <NewsCategoryItem key={category} category={category} Dashboard={dashboard}/>
                     ))}
                 </div>
             </ul>
