@@ -18,7 +18,6 @@ conn = pyodbc.connect(
 )
 cursor = conn.cursor()
 
-
 # Create a dictionary to map the original category to its Korean translation
 category_translation = {
     '': '최신',
@@ -34,11 +33,7 @@ category_translation = {
     'press': '언론',
     'botnews': '봇뉴스'
 }
-def is_url_duplicate(address_url):
-    query = "SELECT COUNT(*) FROM news WHERE address_url = ?"
-    cursor.execute(query, (address_url,))
-    count = cursor.fetchone()[0]
-    return count > 0
+
 
 # Modify the get_newslist function to translate the category before saving
 def get_newslist(category):
@@ -89,10 +84,20 @@ def get_newslist(category):
                 'img': img,
                 'address_url': address_url
             }
+            dup_true = is_url_duplicate(address_url)
+            if dup_true > 0:
+                print("중복된 url:", address_url)
+                return
+            else:
+                save_news_to_db(news_info)
 
-            save_news_to_db(news_info)
 
-# Other parts of the code remain unchanged
+def is_url_duplicate(address_url):
+    query = "SELECT COUNT(*) FROM news WHERE url = ?"
+    cursor.execute(query, (address_url,))
+    count = cursor.fetchone()[0]
+    return count
+
 
 def save_news_to_db(news_info):
     title = news_info['title']
@@ -102,6 +107,7 @@ def save_news_to_db(news_info):
     newstype = news_info['newstype']
     image = news_info['img']
     address_url = news_info['address_url']
+    print("중복아닌 url: ", address_url)
 
     # SQL 쿼리 작성
     query = "INSERT INTO news (title, press, content, date, newstype, image, url) VALUES (?, ?, ?, ?, ?, ?, ?)"
@@ -112,9 +118,11 @@ def save_news_to_db(news_info):
 
 
 def main():
-    categories = ['','society','politics','economic','foreign','culture','entertain','sports','digital','editorial','press','botnews']
+    categories = ['', 'society', 'politics', 'economic', 'foreign', 'culture', 'entertain', 'sports', 'digital',
+                  'editorial', 'press', 'botnews']
     for category in categories:
         get_newslist(category)
+
 
 if __name__ == "__main__":
     main()
