@@ -34,9 +34,9 @@ category_translation = {
     'press': '언론',
     'botnews': '봇뉴스'
 }
-def is_url_duplicate(url):
-    query = "SELECT COUNT(*) FROM news WHERE url = ?"
-    cursor.execute(query, (url,))
+def is_url_duplicate(address_url):
+    query = "SELECT COUNT(*) FROM news WHERE address_url = ?"
+    cursor.execute(query, (address_url,))
     count = cursor.fetchone()[0]
     return count > 0
 
