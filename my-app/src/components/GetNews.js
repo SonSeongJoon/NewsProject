@@ -15,7 +15,7 @@ const GetNews = ({ category }) => {
                 <ul>
                     <h1 className='sticky pb-1 top-0 bg-white text-3xl font-bold mb-3 text-gray-500'>{category}</h1>
                     {filteredNews.map(item => (
-                        <NewsCard key={item.id} item={item}/>
+                        <NewsCard key={item} category={category} item={item}/>
                     ))}
                 </ul>
         </div>

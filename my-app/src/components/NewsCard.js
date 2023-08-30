@@ -7,9 +7,10 @@ function NewsCard({ item }) {
         <div className='flex items-center border-t'>
             <div className='mb-5 p-1 w-5/6 mr-4'>
                 <p className='text-sm text-gray-700'>{date}</p>
-                <a href={url} className='flex items-center hover:no-underline hover:text-gray-600'>
+                <a href={url} target="_blank" rel="noopener noreferrer" className='flex items-center hover:no-underline hover:text-gray-600'>
                     <h2 className='text-lg font-bold'>{title}</h2>
                 </a>
+
                 <a href={url} className="text-sm text-gray-900 hover:underline">{content}</a>
                 <p className='text-xs text-gray-600'>{'#'}{press}</p>
             </div>
