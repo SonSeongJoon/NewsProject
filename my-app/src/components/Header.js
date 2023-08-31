@@ -4,9 +4,9 @@ import React from "react";
 function Header({toggleSmallSide}) {
     return (
         <>
-            <header className='flex h-16 border-2 border-b-black items-center justify-between'>
-                <button onClick={toggleSmallSide}><BsList className='text-3xl'/></button>
-                <h1 className='text-2xl font-bold'>navbar</h1>
+            <header className='flex h-16 border-[0.5px] border-gray-300 items-center'>
+                <button onClick={toggleSmallSide}><BsList className='ml-3 text-3xl mr-9'/></button>
+                <h1 className='text-3xl font-extrabold text-red-950'>SEOUL IR</h1>
             </header>
         </>
     )

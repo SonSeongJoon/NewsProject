@@ -17,7 +17,7 @@ function Layout({children}) {
                     <Header toggleSmallSide={toggleSmallSide}/>
                 </div>
                 <div className='flex flex-1'>
-                    <aside className={`fixed pt-10 flex h-full ${isSmallSide ? 'w-[60px]' : 'w-[140px]'}`} style={{ backgroundColor: '#2A3042' }}>
+                    <aside className={`fixed pt-10 flex h-full ${isSmallSide ? 'w-[60px]' : 'w-[140px]'} bg-red-950`}>
                         <Sidebar isSmallSide={isSmallSide}/>
                     </aside>
                     <div className={`${isSmallSide ? 'ml-[60px]': 'ml-[140px]'} w-[1460px]  flex flex-row`}>
