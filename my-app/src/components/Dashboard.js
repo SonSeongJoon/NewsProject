@@ -24,7 +24,7 @@ const Dashboard = () => {
                 <div key={cat}>
                     <h1 className='text-3xl font-bold text-gray-500 mb-3'>{cat}</h1>
                     {firstNewsByCategory[cat].map((newsItem) => (
-                        <NewsCard key={newsItem.id} item={newsItem} />
+                        <NewsCard key={newsItem} item={newsItem} />
                     ))}
                 </div>
             ))}
