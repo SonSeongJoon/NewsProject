@@ -1,6 +1,7 @@
 import Header from "./Header";
 import Sidebar from "./Sidebar";
 import {useState} from "react";
+import {NewsMoniteringSide} from "./NewsMoniteringSide";
 
 function Layout({children}) {
     const [isSmallSide, setIsSmallSide] = useState(false);  // 초기 상태를 false로 설정
@@ -21,13 +22,13 @@ function Layout({children}) {
                     </aside>
                     <div className={`${isSmallSide ? 'ml-[60px]': 'ml-[140px]'} w-[1460px]  flex flex-row`}>
                         {/* 가로로 삼등분 영역 */}
-                        <div className={`w-[320px] bg-red-400`}>
-                            영역 1
+                        <div className={`flex pl-5 mt-5 w-[280px]`}>
+                            <NewsMoniteringSide/>
                         </div>
-                        <div className={`w-[713px] p-3 bg-green-400 overflow-y-auto h-[calc(100vh-4.5em)]`}>
+                        <div className={`w-[740px] p-3 overflow-y-auto h-[calc(100vh-4.5em)]`}>
                             {children}
                         </div>
-                        <div className={`w-[325px] bg-blue-400`}>
+                        <div className={`w-[325px]`}>
                             영역 3
                         </div>
                         {/* 가로로 삼등분 영역 끝 */}
