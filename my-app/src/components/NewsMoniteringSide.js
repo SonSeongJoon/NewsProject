@@ -30,7 +30,7 @@ export function NewsMoniteringSide() {
     };
 
     return (
-        <div className='w-[200px]'>
+        <div className='w-[240px]'>
             <div className='flex flex-col'>
                 <h1 className='text-xl font-bold'>뉴스 모니터링</h1>
             </div>
@@ -38,8 +38,7 @@ export function NewsMoniteringSide() {
             <hr className='border-t border-red-900'/>
             <br/>
             <div className='flex justify-between'>
-                <h3 className='font-bold text-sm'>키워드 그룹</h3>
-                <p>정렬</p>
+                <h3 className='font-bold text-sm mb-1'>키워드 그룹</h3>
             </div>
             {groupList.map((group, index) => (
                 <KeywordGroup
@@ -47,7 +46,7 @@ export function NewsMoniteringSide() {
                     isOpen={group.isOpen}
                     toggleList={() => updateGroup(group.id, {isOpen: !group.isOpen})}
                     showInput={group.showInput}
-                    toggleInput={() => updateGroup(group.id, {showInput: !group.showInput, isOpen: !group.isOpen})}
+                    toggleInput={() => updateGroup(group.id, {showInput: !group.showInput})}
                     keywords={group.keywords}
                     newKeyword={group.newKeyword}
                     handleInputChange={(e) => updateGroup(group.id, {newKeyword: e.target.value})}
